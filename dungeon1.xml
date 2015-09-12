@@ -1,20 +1,36 @@
 <dungeon>
 	<number_of_room>6</number_of_room>
-	<entrace>1</entrace>
-	<exit>6</exit>
+	<entrance room="1">true</entrance>
+	<exit room="6">true</exit>
 	<link_between_room>
 		<link current_room="1" next_room="2">go front</link>
-		<link current_room="2" next_room="6">behind the carpet</link>
+		<link current_room="2" next_room="1">go back</link>
+		<link current_room="2" next_room="6">go behind the carpet</link>
+		<link current_room="6" next_room="2">go back</link>
 		<link current_room="2" next_room="5">go west</link>
 		<link current_room="2" next_room="3">go front</link>
+		<link current_room="3" next_room="2">go back</link>
 		<link current_room="3" next_room="4">climb the ladder</link>
 	</link_between_room>
+	<traps>
+		<trap room="4">true</trap>
+		<trap room="5">true</trap>
+	</traps>
 	<room_description>
-		<room room="1">you are in the entrace of the dungeon</room>
-		<room room="2">you are in an intersection. A carpet hangs on the wall</room>
-		<room room="3">a ladder is in the back of the room</room>
-		<room room="4" trap="true">it's a trap you fail</room>
-		<room room="5" trap="true">it's a trap you fail</room>
-		<room room="6">you are out of the dungon. You win</room>
+		<room room="1">You are in the entrance of the dungeon. There is only one path in front.</room>
+		<room room="2">You are in an intersection. There is three path: front,east and west. A carpet hangs on the wall.</room>
+		<room room="3">A ladder is in the back of the room.</room>
+		<room room="4">It's a trap you fail.</room>
+		<room room="5">It's a trap you fail.</room>
+		<room room="6">You are out of the dungeon. You win.</room>
 	</room_description>
+	<commands>
+		<command>go front</command>
+		<command>go back</command>
+		<command>go west</command>
+		<command>go east</command>
+		<command>climb the ladder</command>
+		<command>down the ladder</command>
+		<command>go behind the carpet</command>
+	</commands>
 </dungeon>
