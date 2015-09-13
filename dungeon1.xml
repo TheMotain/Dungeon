@@ -25,12 +25,14 @@
 		<room room="6">You are out of the dungeon. You win.</room>
 	</room_description>
 	<commands>
-		<command>go front</command>
-		<command>go back</command>
-		<command>go west</command>
-		<command>go east</command>
-		<command>climb the ladder</command>
-		<command>down the ladder</command>
-		<command>go behind the carpet</command>
+		<command type="action">go front</command>
+		<command type="action">go back</command>
+		<command type="action">go west</command>
+		<command type="action">go east</command>
+		<command type="action">climb the ladder</command>
+		<command type="action">down the ladder</command>
+		<command type="action">go behind the carpet</command>
+		<command type="information">help</command>
+		<command type="information">get description</command>
 	</commands>
 </dungeon>

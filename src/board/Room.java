@@ -65,4 +65,8 @@ public class Room {
 	public boolean isTrap(){
 		return this.trap;
 	}
+	
+	public Room move(String command){
+		return this.connections.get(command);
+	}
 }

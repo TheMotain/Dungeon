@@ -66,6 +66,7 @@ public class DungeonTest {
 	@Test
 	public void test_setEntrance(){
 		Assert.assertTrue(this.dungeon.getRooms().get(1).isEntrance());
+		Assert.assertEquals(this.dungeon.getRooms().get(1), this.dungeon.getStartRoom());
 		Assert.assertFalse(this.dungeon.getRooms().get(2).isEntrance());
 		Assert.assertFalse(this.dungeon.getRooms().get(3).isEntrance());
 		Assert.assertFalse(this.dungeon.getRooms().get(4).isEntrance());

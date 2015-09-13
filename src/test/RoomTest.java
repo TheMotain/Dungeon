@@ -63,4 +63,11 @@ public class RoomTest {
 		Assert.assertFalse(this.room.isEntrance());
 		Assert.assertFalse(this.room.isExit());
 	}
+	
+	@Test
+	public void test_move(){
+		this.room.addConnection("go west", room);
+		Assert.assertNotNull(this.room.move("go west"));
+		Assert.assertNull(this.room.move("go east"));
+	}
 }

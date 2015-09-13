@@ -15,6 +15,7 @@ import org.jdom2.input.SAXBuilder;
  */
 public class Dungeon {
 	private Map<Integer, Room> rooms = new HashMap<Integer, Room>();
+	private Room start_room;
 
 	public Dungeon() {
 	}
@@ -38,8 +39,9 @@ public class Dungeon {
 		this.setRoomsDescription(root.getChild("room_description").getChildren("link"));
 	}
 
-	public void setEntrance(Integer entrace) {
-		this.rooms.get(entrace).setEntrance(true);
+	public void setEntrance(Integer entrance) {
+		this.rooms.get(entrance).setEntrance(true);
+		this.start_room = this.rooms.get(entrance);
 	}
 
 	public void setExit(Integer exit) {
@@ -78,5 +80,9 @@ public class Dungeon {
 	
 	public static void main(String[] args) throws Exception {
 		new Dungeon(new File("dungeon1.xml"));
+	}
+	
+	public Room getStartRoom(){
+		return this.start_room;
 	}
 }
