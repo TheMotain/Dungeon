@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+	
+	<!-- Definition of Elements -->
+	
+	<xs:element name="dungeon">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="number_of_room" type="xs:int"></xs:element>
+				<xs:element name="entrance" type="xs:boolean"></xs:element>
+				<xs:element name="exit" type="xs:boolean"></xs:element>
+				<xs:element name="link_between_room">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="link" maxOccurs="unbounded" type="xs:string"></xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="traps">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="trap" maxOccurs="unbounded" type="xs:boolean"></xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="room_description">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="room" maxOccurs="unbounded" type="xs:string"></xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="commands">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="command" maxOccurs="unbounded" type="xs:string"></xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<!-- Definition of Attribute group by Element -->
+	
+	<xs:attributeGroup name="entrance">
+		<xs:attribute name="room" type="xs:int"></xs:attribute>
+	</xs:attributeGroup>
+
+	<xs:attributeGroup name="exit">
+		<xs:attribute name="room" type="xs:int"></xs:attribute>
+	</xs:attributeGroup>
+
+	<xs:attributeGroup name="link">
+		<xs:attribute name="current_room" type="xs:int"></xs:attribute>
+		<xs:attribute name="next_room" type="xs:int"></xs:attribute>
+	</xs:attributeGroup>
+
+	<xs:attributeGroup name="trap">
+		<xs:attribute name="room" type="xs:int"></xs:attribute>
+	</xs:attributeGroup>
+
+	<xs:attributeGroup name="room">
+		<xs:attribute name="room" type="xs:int"></xs:attribute>
+	</xs:attributeGroup>
+
+	<xs:attributeGroup name="command">
+		<xs:attribute name="type" type="xs:string"></xs:attribute>
+	</xs:attributeGroup>
+</xs:schema>

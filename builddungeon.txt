@@ -1,0 +1,15 @@
+How to build a dungeon:
+1.put root element name "dungeon"
+2.the first element to put is "number_of_room" and the value is the number of rooms
+3.next is the "entrance" and the value is just a boolean at true but the element take an attribute "room" whit the value of the entrance room
+4.it's same element for the exit and now name "exit"
+5.next it's the element that contains an array for put the links between all rooms: link_between_room
+6.in the array for put a link use the name link and two attribute current_room, next_room. The value of a link is the command to change room.
+7.the second array is name traps.
+8.put here an item trap "with" the value true and the attribute room with the id of the trap room
+9.the next array is name "room_description"
+10.put here an item "room" with the description of the room. The attribute of items is "room" with the room id.
+11.the last array is "commands"
+12.this array contains items "command" with the complete command and the "type" in attribute as "action". Care all commands for change room need to be here.
+
+See the dungeon.xsd for more informations. 
