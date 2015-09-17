@@ -36,7 +36,7 @@ public class Dungeon {
 		this.setExit(Integer.parseInt(root.getChild("exit").getAttributeValue("room")));
 		this.setLinks(root.getChild("link_between_room").getChildren("link"));
 		this.setTraps(root.getChild("traps").getChildren("trap"));
-		this.setRoomsDescription(root.getChild("room_description").getChildren("link"));
+		this.setRoomsDescription(root.getChild("room_description").getChildren("room"));
 	}
 
 	public void setEntrance(Integer entrance) {
@@ -76,10 +76,6 @@ public class Dungeon {
 
 	public Map<Integer, Room> getRooms() {
 		return this.rooms;
-	}
-	
-	public static void main(String[] args) throws Exception {
-		new Dungeon(new File("dungeon1.xml"));
 	}
 	
 	public Room getStartRoom(){

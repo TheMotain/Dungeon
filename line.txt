@@ -1,0 +1,17 @@
+Epurer les god methodes
+plusieurs schéma de donjon
+remplacer les val link par un id de commande
+double description de piece
+
+pièce à évènhement xml -> java (description,bouton,montre etc
+    map pièces connectée et map pièce déconnectée
+    stockage des interrations
+inventaire
+    clef using key
+    weapon using again monster
+monster description de l'arme à utiliser
+potion de retour au départ
+potion ?
+
+room extends observer
+evenement extends observeur

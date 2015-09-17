@@ -69,6 +69,7 @@ public class MainGame {
 			}
 			else{
 				if(this.current_room.isTrap()){
+					System.out.println("You loose");
 					System.out.println("You are fall in a trap");
 				}
 			}

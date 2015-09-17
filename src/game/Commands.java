@@ -20,6 +20,8 @@ public class Commands {
 	
 	public Commands(){
 		this.commands = new HashMap<String,String>();
+		commands.put("get description", "information");
+		commands.put("help", "information");
 	}
 	
 	
@@ -34,7 +36,7 @@ public class Commands {
 			throw new Exception("The input xml file contains error and he can not be parsed");
 		}
 		Element root = doc.getRootElement();
-		this.setCommands(root.getChildren("commands"));
+		this.setCommands(root.getChild("commands").getChildren("command"));
 	}
 	
 	public void setCommands(List<Element> commands){
