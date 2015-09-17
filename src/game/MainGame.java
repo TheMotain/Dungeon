@@ -27,43 +27,14 @@ public class MainGame {
 	}
 	
 	public void start(){
-		String line;
-		Room tmp;
 		System.out.println("Hello welcome to the dungeon");
 		System.out.println("For see all commands write help");
-		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 		while(!this.isFinish()){
 			System.out.println(this.current_room.getDescription());
 			System.out.println("What do you want to do ?");
 			System.out.print("> ");
-			while(true){
-				line = scanner.nextLine();
-				if(this.commands.getMapOfCommand().containsKey(line)){
-					if(this.commands.getMapOfCommand().get(line).equals("information")){
-						if(line.equals("help")){
-							System.out.println(this.commands);
-						}
-						if(line.equals("get description")){
-							System.out.println(this.current_room.getDescription());
-						}
-					}
-					if(this.commands.getMapOfCommand().get(line).equals("action")){
-						tmp = this.current_room.move(line);
-						if(tmp != null){
-							this.current_room = tmp;
-							break;
-						} else {
-							System.out.println("Commande impossible.");
-						}
-					}
-				}
-				else{
-					System.out.println("Unknow command.");
-				}
-				System.out.println("What do you want to do ?");
-				System.out.print("> ");
-			}
+			this.readAction(scanner);
 			if(this.isWin()){
 				System.out.println("Congratulations you are out of dungeon");
 			}
@@ -73,6 +44,43 @@ public class MainGame {
 					System.out.println("You are fall in a trap");
 				}
 			}
+		}
+	}
+	
+	private void readAction(Scanner scanner){
+		String line;
+		while(true){
+			line = scanner.nextLine();
+			if(this.commands.getMapOfCommand().containsKey(line)){
+				if(this.commands.getMapOfCommand().get(line).equals("information")){
+					if(line.equals("help")){
+						System.out.println(this.commands);
+					}
+					if(line.equals("get description")){
+						System.out.println(this.current_room.getDescription());
+					}
+				}
+				if(this.commands.getMapOfCommand().get(line).getType().equals("movement")){
+					if(executeAction(line)==0){
+					break;}
+				}
+			}
+			else{
+				System.out.println("Unknow command.");
+			}
+			System.out.println("What do you want to do ?");
+			System.out.print("> ");
+		}
+	}
+	
+	private int executeAction(String action){
+		Room next_room = this.current_room.move(this.commands.getIDCommand(action));
+		if(next_room != null){
+			this.current_room = next_room;
+			return 0;
+		} else {
+			System.out.println("Action impossible.");
+			return -1;
 		}
 	}
 	

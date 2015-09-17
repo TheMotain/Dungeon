@@ -34,9 +34,9 @@ public class RoomTest {
 	@Test
 	public void test_addConnection(){
 		Room next_room = new Room();
-		Map<String,Room> result = new HashMap<String,Room>();
-		result.put("go front", next_room);
-		this.room.addConnection("go front", next_room);
+		Map<Integer,Room> result = new HashMap<Integer,Room>();
+		result.put(1, next_room);
+		this.room.addConnection(1, next_room);
 		Assert.assertEquals(result, this.room.getConnections());
 	}
 	
@@ -66,8 +66,8 @@ public class RoomTest {
 	
 	@Test
 	public void test_move(){
-		this.room.addConnection("go west", room);
-		Assert.assertNotNull(this.room.move("go west"));
-		Assert.assertNull(this.room.move("go east"));
+		this.room.addConnection(2, room);
+		Assert.assertNotNull(this.room.move(2));
+		Assert.assertNull(this.room.move(3));
 	}
 }

@@ -1,9 +1,9 @@
-Epurer les god methodes
+Epurer les god methodes -> épuré
 plusieurs schéma de donjon
-remplacer les val link par un id de commande
+remplacer les val link par un id de commande -> fait
 double description de piece
 
-pièce à évènhement xml -> java (description,bouton,montre etc
+pièce à évènement xml -> java (description,bouton,montre etc)
     map pièces connectée et map pièce déconnectée
     stockage des interrations
 inventaire
@@ -15,3 +15,5 @@ potion ?
 
 room extends observer
 evenement extends observeur
+
+faire un éditeur de map si le temps le permet

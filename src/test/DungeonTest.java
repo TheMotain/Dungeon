@@ -32,13 +32,13 @@ public class DungeonTest {
 		this.dungeon.setEntrance(1);
 		this.dungeon.setExit(3);
 		List<Element> links = new ArrayList<Element>();
-		links.add(new Element("link").setAttribute("current_room", "1").setAttribute("next_room", "2")
+		links.add(new Element("link").setAttribute("current_room", "1").setAttribute("next_room", "2").setAttribute("id_command","1")
 				.setText("go front"));
-		links.add(new Element("link").setAttribute("current_room", "2").setAttribute("next_room", "3")
+		links.add(new Element("link").setAttribute("current_room", "2").setAttribute("next_room", "3").setAttribute("id_command","2")
 				.setText("go east"));
-		links.add(new Element("link").setAttribute("current_room", "2").setAttribute("next_room", "4")
+		links.add(new Element("link").setAttribute("current_room", "2").setAttribute("next_room", "4").setAttribute("id_command","3")
 				.setText("go west"));
-		links.add(new Element("link").setAttribute("current_room", "2").setAttribute("next_room", "1")
+		links.add(new Element("link").setAttribute("current_room", "2").setAttribute("next_room", "1").setAttribute("id_command","4")
 				.setText("go back"));
 		this.dungeon.setLinks(links);
 		List<Element> traps = new ArrayList<Element>();
@@ -83,13 +83,13 @@ public class DungeonTest {
 	@Test
 	public void test_setLinks() {
 		Map<Integer, Room> rooms = this.dungeon.getRooms();
-		Map<String, Room> links_expected = new HashMap<String, Room>();
-		links_expected.put("go front", rooms.get(2));
+		Map<Integer, Room> links_expected = new HashMap<Integer, Room>();
+		links_expected.put(1, rooms.get(2));
 		Assert.assertEquals(links_expected, this.dungeon.getRooms().get(1).getConnections());
 		links_expected.clear();
-		links_expected.put("go east", rooms.get(3));
-		links_expected.put("go back", rooms.get(1));
-		links_expected.put("go west", rooms.get(4));
+		links_expected.put(2, rooms.get(3));
+		links_expected.put(4, rooms.get(1));
+		links_expected.put(3, rooms.get(4));
 		Assert.assertEquals(links_expected, this.dungeon.getRooms().get(2).getConnections());
 		links_expected.clear();
 		Assert.assertEquals(links_expected, this.dungeon.getRooms().get(3).getConnections());

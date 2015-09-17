@@ -3,14 +3,15 @@
 	<entrance room="1">true</entrance>
 	<exit room="6">true</exit>
 	<link_between_room>
-		<link current_room="1" next_room="2">go front</link>
-		<link current_room="2" next_room="1">go back</link>
-		<link current_room="2" next_room="6">go behind the carpet</link>
-		<link current_room="6" next_room="2">go back</link>
-		<link current_room="2" next_room="5">go west</link>
-		<link current_room="2" next_room="3">go front</link>
-		<link current_room="3" next_room="2">go back</link>
-		<link current_room="3" next_room="4">climb the ladder</link>
+		<link current_room="1" next_room="2" id_command="1">go front</link>
+		<link current_room="2" next_room="1" id_command="2">go back</link>
+		<link current_room="2" next_room="6" id_command="7">go behind the carpet</link>
+		<link current_room="6" next_room="2" id_command="2">go back</link>
+		<link current_room="2" next_room="5" id_command="3">go west</link>
+		<link current_room="2" next_room="3" id_command="1">go front</link>
+		<link current_room="3" next_room="2" id_command="2">go back</link>
+		<link current_room="3" next_room="4" id_command="5">climb the ladder</link>
+		<link current_room="4" next_room="3" id_command="6">down the ladder</link>
 	</link_between_room>
 	<traps>
 		<trap room="4">true</trap>
@@ -25,12 +26,12 @@
 		<room room="6">You are out of the dungeon. You win.</room>
 	</room_description>
 	<commands>
-		<command type="action">go front</command>
-		<command type="action">go back</command>
-		<command type="action">go west</command>
-		<command type="action">go east</command>
-		<command type="action">climb the ladder</command>
-		<command type="action">down the ladder</command>
-		<command type="action">go behind the carpet</command>
+		<command type="movement" id="1">go front</command>
+		<command type="movement" id="2">go back</command>
+		<command type="movement" id="3">go west</command>
+		<command type="movement" id="4">go east</command>
+		<command type="movement" id="5">climb the ladder</command>
+		<command type="movement" id="6">down the ladder</command>
+		<command type="movement" id="7">go behind the carpet</command>
 	</commands>
 </dungeon>

@@ -16,12 +16,12 @@ import org.jdom2.input.SAXBuilder;
  *
  */
 public class Commands {
-	private Map<String,String> commands;
+	private Map<String,Command> commands;
 	
 	public Commands(){
-		this.commands = new HashMap<String,String>();
-		commands.put("get description", "information");
-		commands.put("help", "information");
+		this.commands = new HashMap<String,Command>();
+		commands.put("get description", new Command("get description",0,"information"));
+		commands.put("help", new Command("help",0,"information"));
 	}
 	
 	
@@ -41,12 +41,12 @@ public class Commands {
 	
 	public void setCommands(List<Element> commands){
 		for(Element tmp : commands){
-			this.commands.put(tmp.getValue(), tmp.getAttributeValue("type"));
+			this.commands.put(tmp.getValue(), new Command(tmp.getValue(),Integer.parseInt(tmp.getAttributeValue("id")),tmp.getAttributeValue("type")));
 		}
 	}
 
 
-	public Map<String,String> getMapOfCommand() {
+	public Map<String,Command> getMapOfCommand() {
 		return this.commands;
 	}
 	
@@ -61,5 +61,14 @@ public class Commands {
 			str += "\n\t- " + tmp;
 		}
 		return str;
+	}
+
+
+	public int getIDCommand(String action) {
+		Command tmp = this.commands.get(action);
+		if(tmp != null)
+			return tmp.getID();
+		else
+			return -1;
 	}
 }

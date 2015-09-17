@@ -4,16 +4,39 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author Alex
+ * Describe a Room
+ * 
+ * @author Alex Dalencourt
+ * @author Thibault Montois
  *
  */
 public class Room {
-	private Map<String, Room> connections = new HashMap<String, Room>();
+	/**
+	 * Contains all connection between the instance of room and other rooms. The key is the command ID for complied a movement
+	 */
+	private Map<Integer, Room> connections = new HashMap<Integer, Room>();
+	/**
+	 * Contains the room description
+	 */
 	private String description;
+	/**
+	 * indicate if the room is an entry
+	 */
 	private boolean entrance;
+	/**
+	 * indicate if the room is an exit
+	 */
 	private boolean exit;
+	/**
+	 * indicate if the room is a trap
+	 */
 	private boolean trap;
 
+	/**
+	 * Use for put a description to the room
+	 * @param description
+	 * take a string which contains a description
+	 */
 	public void setDescription(String description) {
 		this.description = description;
 	}
@@ -22,11 +45,11 @@ public class Room {
 		return this.description;
 	}
 
-	public void addConnection(String condition, Room next_room) {
+	public void addConnection(Integer condition, Room next_room) {
 		this.connections.put(condition, next_room);
 	}
 
-	public Map<String, Room> getConnections() {
+	public Map<Integer, Room> getConnections() {
 		return this.connections;
 	}
 
@@ -66,7 +89,7 @@ public class Room {
 		return this.trap;
 	}
 	
-	public Room move(String command){
-		return this.connections.get(command);
+	public Room move(int id_command){
+		return this.connections.get(id_command);
 	}
 }
